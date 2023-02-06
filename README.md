@@ -4,11 +4,15 @@ Once I had installed *OpenCart Version 3.0.3.8* I wanted to add a Google ReCaptc
 
 I had setup my **sitekey** and **secretkey** and enabled the `Google reCAPTCHA (Default)` extension I tested my contact form and I received the `file_get_contents()` error.
 
+[<img src="img/1.jpg" width="500"/>](img/1.jpg)
+
 ```
 2023-12-08 11:30:44 - PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /usr/www/users/Username/myshop.com/catalog/controller/extension/captcha/google.php on line 27
 2023-12-08 11:30:44 - PHP Warning:  file_get_contents(https://www.google.com/recaptcha/api/siteverify?secret=dfgkdsjbfiojsgfds&response=&remoteip=0.0.0.0): Failed to open stream: no suitable wrapper could be found in /usr/www/users/Username/myshop.com/catalog/controller/extension/captcha/google.php on line 27
 2023-12-08 11:30:44 - PHP Warning:  Trying to access array offset on value of type null in /usr/www/users/Username/myshop.com/catalog/controller/extension/captcha/google.php on line 31
 ```
+
+[<img src="img/2.jpg" width="500"/>](img/2.jpg)
 
 Now I am not comfortable enabling `allow_url_fopen` in PHP on my server and you should also be wary since Unfortunately, `file_get_contents()` is a dangerous function when used with data obtained from user input, as it is the case. Using it could allow diverse kinds of attacks, from Denial of Service to loading of remote malicious resources.  You can also serve files that are not normally accessible, either due to server configuration, e.g. .htaccess, or file permissions.
 
