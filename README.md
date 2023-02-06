@@ -99,7 +99,7 @@ class ControllerExtensionCaptchaGoogle extends Controller {
 			$data = array(
 			    'secret' => $this->config->get('captcha_google_secret'),
 			    'response' => $this->request->post['g-recaptcha-response'],
-				   'remoteip' => $this->request->server['REMOTE_ADDR']
+				'remoteip' => $this->request->server['REMOTE_ADDR']
 			);
 			
 			$verify = curl_init();
